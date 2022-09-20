@@ -3,6 +3,54 @@
   src: url("./Pretendard-Regular.otf");
 }
 
+* {
+  /* font-family: Pretendard, Arial, Helvetica, sans-serif; */
+}
+
 body {
+  font-family: Pretendard, Arial, Helvetica, sans-serif;
   background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.header {
+  height: 50px;
+  border-bottom: 1px solid #eee;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_search {
+  width: 240px;
+  background: rgba(240, 240, 240, 0.733);
+  border-radius: 36px;
+  padding: 0 4px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_search > input {
+  width: 80%;
+}
+
+.header_search_icon {
+  width: 20px;
+  height: 20px;
+}
+
+.header_icon {
+  margin-left: 16px;
+  width: 20px;
+  height: 20px;
 }

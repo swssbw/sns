@@ -3,13 +3,13 @@ import { HomeIcon, UserIcon, UsersIcon, MagnifyingGlassIcon } from "@heroicons/r
 
 const Header = () => {
   return (
-    <div>
-      <div>
+    <div className="header">
+      <div className="header_search">
         <input type="text" placeholder="Search..." />
-        <MagnifyingGlassIcon />
+        <MagnifyingGlassIcon className="header_icon" />
       </div>
-      <HomeIcon />
-      <UserIcon />
+      <HomeIcon className="header_icon" />
+      <UserIcon className="header_icon" />
     </div>
   );
 };
