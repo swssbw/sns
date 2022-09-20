@@ -17,8 +17,8 @@ const FeedItem = (props) => {
           <UserCircleIcon width={25} height={25} style={{ marginRight: "8px" }} />
           {feedItem.author}
         </p>
-        <div>
-          <Image src={sampleimg} alt="image" placeholder="blur" width={370} height={370} />
+        <div className="feedItem_image">
+          <Image src={sampleimg} alt="image" placeholder="blur" layout="responsive" />
         </div>
         <p className="feedItem_contents">{feedItem.quote}</p>
       </div>

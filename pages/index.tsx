@@ -20,10 +20,12 @@ const Home: NextPage<Props> = (props: Props) => {
         <title>짹짹이</title>
       </Head>
 
-      <Header />
-      <main className="main">
-        <Feed feedItems={contents} />
-        <Sidebar />
+      <main>
+        <Header />
+        <div className="main">
+          <Feed feedItems={contents} />
+          <Sidebar />
+        </div>
       </main>
     </div>
   );

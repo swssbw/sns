@@ -3,8 +3,10 @@ import { HomeIcon, UserIcon, UsersIcon } from "@heroicons/react/24/outline";
 
 const Sidebar = () => {
   return (
-    <div className="sidebar" style={{ border: "1px solid blue" }}>
-      <div>친구추천</div>
+    <div className="sidebar">
+      <div>
+        <p className="sidebar_title">RECOMMENDED AUTHORS</p>
+      </div>
     </div>
   );
 };
