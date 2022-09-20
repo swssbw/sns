@@ -4,8 +4,16 @@ import Image from "next/image";
 import Feed from "../components/Feed";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+import axios from "axios";
+import { FeedItemContents } from "../data";
 
-const Home: NextPage = () => {
+type Props = {
+  contents: FeedItemContents;
+};
+
+const Home: NextPage<Props> = (props: Props) => {
+  const { contents } = props;
+
   return (
     <div>
       <Head>
@@ -14,22 +22,25 @@ const Home: NextPage = () => {
 
       <main>
         <Header />
-        <div
-          className="
-          grid grid-cols-3 
-          xs:max-w-md
-          sm:max-w-lg
-          md:max-w-2xl 
-          lg:max-w-5xl 
-          mx-auto 
-          max-h-screen overflow-hidden"
-        >
-          <Feed />
+        <div className="">
+          <Feed feedItems={contents} />
           <Sidebar />
         </div>
       </main>
     </div>
   );
 };
+
+export async function getServerSideProps(context: any) {
+  const {
+    data: { quotes },
+  } = await axios.get("https://dummyjson.com/quotes");
+
+  return {
+    props: {
+      contents: quotes,
+    },
+  };
+}
 
 export default Home;
