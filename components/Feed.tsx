@@ -7,7 +7,7 @@ const Feed = (props) => {
   const { feedItems } = props;
 
   return (
-    <div>
+    <div className="feed">
       <div>
         {feedItems.map((feedItem, index) => (
           <FeedItem feedItem={feedItem} key={index} />

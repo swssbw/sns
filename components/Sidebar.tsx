@@ -1,17 +1,10 @@
 import React from "react";
 import { HomeIcon, UserIcon, UsersIcon } from "@heroicons/react/24/outline";
-import SidebarRow from "./SidebarRow";
 
 const Sidebar = () => {
   return (
-    <div className="flex lg:visible lg:col-span-1 invisible h-96">
-      {/* <SidebarRow title="HOME" Icon={HomeIcon} />
-      <SidebarRow title="USER" Icon={UsersIcon} />
-      <SidebarRow title="SIGN IN" Icon={UserIcon} /> */}
-      {/* 친구추천 */}
-      <div className="fixed" style={{ border: "1px solid red" }}>
-        친구추천
-      </div>
+    <div className="sidebar" style={{ border: "1px solid blue" }}>
+      <div>친구추천</div>
     </div>
   );
 };
