@@ -10,7 +10,6 @@ type Props = {
 
 const FeedItem = (props: Props) => {
   const { feedItem } = props;
-  console.log(feedItem);
 
   return (
     <div className="feedItem">
