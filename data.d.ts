@@ -7,7 +7,7 @@ export type FeedItemContents = {
 export type Quote = {
   id: number;
   author: string;
-  contents: string;
+  quote: string;
 };
 
 export type User = {

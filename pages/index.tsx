@@ -1,18 +1,15 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Feed from "../components/Feed";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-import axios from "axios";
-import { FeedItemContents } from "../data";
+import { useAppSelector } from "../features/hooks";
+import { getContentsList } from "../features/contents/contentsSlice";
+import wrapper from "../features/store";
 
-type Props = {
-  contents: FeedItemContents;
-};
-
-const Home: NextPage<Props> = (props: Props) => {
-  const { contents } = props;
+const Home: NextPage = () => {
+  const contents = useAppSelector((state) => state.contents.contentsList);
+  console.log("********************", contents);
 
   return (
     <div>
@@ -31,16 +28,12 @@ const Home: NextPage<Props> = (props: Props) => {
   );
 };
 
-export async function getServerSideProps(context: any) {
-  const {
-    data: { quotes },
-  } = await axios.get("https://dummyjson.com/quotes");
+export const getServerSideProps = wrapper.getServerSideProps((store) => async () => {
+  await store.dispatch(getContentsList());
 
   return {
-    props: {
-      contents: quotes,
-    },
+    props: {},
   };
-}
+});
 
 export default Home;

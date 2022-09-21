@@ -1,14 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import sampleimg from "../public/123.jpg";
+import { Quote } from "../data";
 import { UserCircleIcon } from "@heroicons/react/24/outline";
 
-// type Props = {
-//   feedItem :
-// }
+type Props = {
+  feedItem: Quote;
+};
 
-const FeedItem = (props) => {
+const FeedItem = (props: Props) => {
   const { feedItem } = props;
+  console.log(feedItem);
 
   return (
     <div className="feedItem">
