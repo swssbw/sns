@@ -3,14 +3,11 @@ import Head from "next/head";
 import Feed from "../components/Feed";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-import { useAppSelector } from "../features/hooks";
 import { getContentsList } from "../features/contents/contentsSlice";
+import { getUsersList } from "../features/users/usersSlice";
 import wrapper from "../features/store";
 
 const Home: NextPage = () => {
-  const contents = useAppSelector((state) => state.contents.contentsList);
-  console.log("********************", contents);
-
   return (
     <div>
       <Head>
@@ -20,7 +17,7 @@ const Home: NextPage = () => {
       <main>
         <Header />
         <div className="main">
-          <Feed feedItems={contents} />
+          <Feed />
           <Sidebar />
         </div>
       </main>
@@ -30,6 +27,7 @@ const Home: NextPage = () => {
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async () => {
   await store.dispatch(getContentsList());
+  await store.dispatch(getUsersList());
 
   return {
     props: {},

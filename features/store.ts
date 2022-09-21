@@ -5,6 +5,7 @@ import logger from "redux-logger";
 
 import { FeedItemContents } from "../data";
 import contents from "./contents/contentsSlice";
+import users from "./users/usersSlice";
 
 type InitialStates = {
   contents: {
@@ -13,11 +14,8 @@ type InitialStates = {
 };
 
 const rootReducer = (state: any, action: AnyAction) => {
-  if (action.type === HYDRATE) {
-    console.log("HYDRATE", action);
-    return { ...state, ...action.payload };
-  }
-  return combineReducers({ contents })(state, action);
+  if (action.type === HYDRATE) return { ...state, ...action.payload };
+  return combineReducers({ contents, users })(state, action);
 };
 
 const makeStore = () =>

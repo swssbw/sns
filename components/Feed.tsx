@@ -2,14 +2,15 @@ import React from "react";
 import { ArrowPathIcon } from "@heroicons/react/24/solid";
 import FeedItem from "./FeedItem";
 import { FeedItemContents } from "./../data";
+import { useAppSelector } from "../features/hooks";
 
-const Feed = (props) => {
-  const { feedItems } = props;
+const Feed = () => {
+  const contents = useAppSelector((state) => state.contents.contentsList);
 
   return (
     <div className="feed">
       <div>
-        {feedItems.map((feedItem, index) => (
+        {contents.map((feedItem, index) => (
           <FeedItem feedItem={feedItem} key={index} />
         ))}
       </div>
