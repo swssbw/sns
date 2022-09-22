@@ -17,6 +17,8 @@ export type User = {
   email: string;
 };
 
+export type UserList = User[];
+
 export type Post = {
   id: number;
   userid: number;

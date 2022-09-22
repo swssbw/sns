@@ -1,17 +1,35 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { FeedItemContents } from "../../data";
+import { User } from "../../data";
 import axios from "axios";
+
+type initalStateType = {
+  userList: User[];
+};
+
+const initialState: initalStateType = {
+  userList: [],
+};
 
 export const getUsersList = createAsyncThunk("users/getUsersList", async () => {
   const {
     data: { users },
   } = await axios.get("https://dummyjson.com/users");
-  return users;
+
+  const tmp = users.map((user: any) => {
+    return {
+      id: user.id,
+      name: user.firstName,
+      image: user.image,
+      email: user.email,
+    };
+  });
+
+  return tmp;
 });
 
 const usersSlice = createSlice({
   name: "users",
-  initialState: { userList: [] },
+  initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder

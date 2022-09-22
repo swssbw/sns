@@ -104,7 +104,7 @@ p {
   border: 1px solid #eee;
   border-radius: 8px;
   background-color: white;
-  /* padding: 16px; */
+  /* overflow-y: scroll; */
 }
 
 .sidebar_title {
@@ -115,6 +115,32 @@ p {
   padding: 4px 16px;
   color: #aaa;
 }
+
+.sidebar_contents {
+  padding: 4px 16px;
+}
+
+.sidebar_item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.sidebar_item_col1 {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar_item_col2 {
+  margin-left: 16px;
+}
+
+.sidebar_item_email {
+  color: #888;
+  font-size: 13px;
+}
+
 /* 반응형 */
 @media screen and (min-width: 375px) and (max-width: 768px) {
   /* mobile ~ tablet */
