@@ -19,11 +19,7 @@ const FeedItem = (props: Props) => {
           {feedItem.author}
         </p>
         <div className="feedItem_image">
-          {/* <Image src={sampleimg} alt="image" placeholder="blur" layout="responsive" /> */}
           <Image
-            // src="https://picsum.photos/370"
-            // src="https://picsum.photos/id/10/370/370"
-            // blurDataURL="https://picsum.photos/id/10/370/370"
             src={feedItem.image}
             blurDataURL={feedItem.image}
             alt="image"
