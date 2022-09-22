@@ -9,19 +9,10 @@ import wrapper from "../features/store";
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <Head>
-        <title>짹짹이</title>
-      </Head>
-
-      <main>
-        <Header />
-        <div className="main">
-          <Feed />
-          <Sidebar />
-        </div>
-      </main>
-    </div>
+    <>
+      <Feed />
+      <Sidebar />
+    </>
   );
 };
 
