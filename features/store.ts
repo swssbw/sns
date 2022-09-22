@@ -3,15 +3,8 @@ import { MakeStore, createWrapper, Context, HYDRATE } from "next-redux-wrapper";
 import { configureStore, CombinedState, combineReducers } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 
-import { FeedItemContents } from "../data";
 import contents from "./contents/contentsSlice";
 import users from "./users/usersSlice";
-
-type InitialStates = {
-  contents: {
-    contentsList: FeedItemContents[];
-  };
-};
 
 const rootReducer = (state: any, action: AnyAction) => {
   if (action.type === HYDRATE) return { ...state, ...action.payload };
@@ -26,12 +19,6 @@ const makeStore = () =>
   });
 
 const store = makeStore();
-
-// export const store = configureStore({
-//   reducer: {
-//     contents,
-//   },
-// });
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
