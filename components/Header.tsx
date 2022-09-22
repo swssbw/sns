@@ -5,7 +5,6 @@ import Router from "next/router";
 const Header = () => {
   const handleSearchClick = () => {
     Router.push("/search?word=summer", "/search");
-    console.log(Router);
   };
 
   return (

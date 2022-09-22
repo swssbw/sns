@@ -5,7 +5,6 @@ import Image from "next/image";
 
 type Post = {
   total: number;
-  title?: string;
   body?: string;
   image?: string;
 };
@@ -18,11 +17,9 @@ const search = () => {
     setIsLoading(true);
 
     axios.get(`https://dummyjson.com/posts/search?q=${Router.router.state.query.word}`).then((response) => {
-      if (response.data.total > 0) {
-        const { title, body } = response.data.posts[0];
-        setPost({ total: 1, title, body, image: "https://picsum.photos/370" });
-      } else setPost({ total: 0 });
-
+      if (response.data.total > 0)
+        setPost({ total: 1, body: response.data.posts[0].body, image: "https://picsum.photos/370" });
+      else setPost({ total: 0 });
       setIsLoading(false);
     });
   }, []);
