@@ -10,6 +10,8 @@ export type Quote = {
   quote: string;
 };
 
+export type QuoteList = Quote[];
+
 export type User = {
   id: number;
   name: string;

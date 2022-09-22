@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { User } from "../../data";
+import { User, UserList } from "../../data";
 import axios from "axios";
 
 type initalStateType = {
-  userList: User[];
+  userList: UserList;
 };
 
 const initialState: initalStateType = {

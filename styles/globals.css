@@ -110,7 +110,7 @@ p {
 .sidebar_title {
   height: 40px;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   padding: 4px 16px;
   color: #aaa;

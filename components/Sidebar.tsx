@@ -12,7 +12,7 @@ const Sidebar = () => {
   const makeRandomNumber = () => {
     let tmp = [];
     for (let i = 0; i < 5; i++) {
-      const randomNum = Math.floor(Math.random() * 30);
+      const randomNum = Math.floor(Math.random() * 29);
       if (tmp.indexOf(randomNum) === -1) {
         tmp.push(randomNum);
       }
@@ -34,7 +34,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div>
-        <p className="sidebar_title">RECOMMENDED AUTHORS</p>
+        <p className="sidebar_title">RECOMMENDED</p>
         <div className="sidebar_contents">
           {userList.map((user: User, index: number) => (
             <SidebarItem item={user} key={index} />

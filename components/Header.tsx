@@ -9,7 +9,7 @@ const Header = () => {
         <MagnifyingGlassIcon className="header_search_icon" />
       </div>
       <HomeIcon className="header_icon" />
-      <UserIcon className="header_icon" />
+      {/* <UserIcon className="header_icon" /> */}
     </div>
   );
 };
