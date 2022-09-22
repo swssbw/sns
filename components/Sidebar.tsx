@@ -17,17 +17,13 @@ const Sidebar = () => {
         tmp.push(randomNum);
       }
     }
-    console.log(tmp);
     return tmp;
   };
 
   useEffect(() => {
     const indexArr = makeRandomNumber();
     let tmp: UserList = [];
-    indexArr.forEach((index) => {
-      console.log(users[index]);
-      tmp.push(users[index]);
-    });
+    indexArr.forEach((index) => tmp.push(users[index]));
     setUserList(tmp);
   }, [users]);
 

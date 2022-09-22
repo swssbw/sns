@@ -16,10 +16,10 @@ const SidebarItem = (props: Props) => {
         height={25}
         className="sidebar_item_image sidebar_item_col1"
       />
-      <p className="sidebar_item_col2">
+      <div className="sidebar_item_col2">
         <p className="sidebar_item_name">{item.name}</p>
         <p className="sidebar_item_email">{item.email}</p>
-      </p>
+      </div>
     </div>
   );
 };
