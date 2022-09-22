@@ -3,6 +3,7 @@
   src: url("./Pretendard-Regular.otf");
 }
 
+/* 공통 스타일 초기화 */
 body {
   font-family: Pretendard, Arial, Helvetica, sans-serif;
   background-color: #f8f8f8;
@@ -70,6 +71,7 @@ p {
   padding-top: 66px;
   justify-items: center;
 }
+
 /* 피드 */
 
 /* 피드 아이템 */
@@ -104,13 +106,12 @@ p {
   border: 1px solid #eee;
   border-radius: 8px;
   background-color: white;
-  /* overflow-y: scroll; */
+  top: 0;
 }
 
 .sidebar_title {
   height: 40px;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   padding: 4px 16px;
   color: #aaa;
@@ -144,10 +145,6 @@ p {
 /* 반응형 */
 @media screen and (min-width: 375px) and (max-width: 768px) {
   /* mobile ~ tablet */
-  /* body {
-    background-color: red;
-  } */
-
   .main {
     display: grid;
     grid-template-columns: 1fr;
@@ -166,9 +163,6 @@ p {
 
 @media screen and (min-width: 769px) {
   /* tablet ~ pc */
-  /* body {
-    background-color: pink;
-  } */
   .feedItem_image {
     width: 478px;
     height: 478px;

@@ -1,5 +1,4 @@
 import React from "react";
-import { ArrowPathIcon } from "@heroicons/react/24/solid";
 import FeedItem from "./FeedItem";
 import { Quote } from "./../data";
 import { useAppSelector } from "../features/hooks";

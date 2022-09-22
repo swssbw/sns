@@ -2,6 +2,7 @@ export type Quote = {
   id: number;
   author: string;
   quote: string;
+  image: string;
 };
 
 export type QuoteList = Quote[];
