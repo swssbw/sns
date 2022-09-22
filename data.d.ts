@@ -1,9 +1,3 @@
-export type FeedItemContents = {
-  contents: string;
-  author: string;
-  id: number;
-};
-
 export type Quote = {
   id: number;
   author: string;
@@ -27,3 +21,5 @@ export type Post = {
   contents: string;
   tags: string[];
 };
+
+export type PostList = Post[];
