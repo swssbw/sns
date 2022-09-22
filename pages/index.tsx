@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import Feed from "../components/Feed";
-import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { getContentsList } from "../features/contents/contentsSlice";
 import { getUsersList } from "../features/users/usersSlice";

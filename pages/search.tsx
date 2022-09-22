@@ -1,31 +1,19 @@
 import React, { useEffect, useState } from "react";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import axios from "axios";
 import Image from "next/image";
 
 type Post = {
-  total: number;
+  error: boolean;
   body?: string;
 };
 
-const search = () => {
-  const [post, setPost] = useState<Post>({
-    total: 0,
-    body: "",
-  });
-  const [isLoading, setIsLoading] = useState(false);
+type Props = {
+  post: Post;
+};
 
-  useEffect(() => {
-    setIsLoading(true);
-
-    axios.get(`https://dummyjson.com/posts/search?q=${Router.router.state.query.word}`).then((response) => {
-      if (response.data.total > 0) setPost({ total: 1, body: response.data.posts[0].body });
-      setIsLoading(false);
-    });
-  }, []);
-
-  if (isLoading) return <h1>Loading...</h1>;
-  if (post.total === 0) return <h1>No Results.</h1>;
+const search = ({ post }: Props) => {
+  if (post.error) return <h1>No Results.</h1>;
   return (
     <div className="feedItem">
       <div>
@@ -47,3 +35,25 @@ const search = () => {
 };
 
 export default search;
+
+export async function getServerSideProps(context: { query: { word: string } }) {
+  let tmp = {
+    body: "",
+    error: true,
+  };
+
+  await axios.get(`https://dummyjson.com/posts/search?q=${context.query.word}`).then((response) => {
+    if (response.data.posts.length > 0) {
+      tmp = {
+        body: response.data.posts[0].body,
+        error: false,
+      };
+    }
+  });
+
+  return {
+    props: {
+      post: tmp,
+    },
+  };
+}
