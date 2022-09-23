@@ -1,11 +1,17 @@
-import { useState, KeyboardEvent, ChangeEvent } from "react";
+import { useState, KeyboardEvent, ChangeEvent, useEffect } from "react";
 import { HomeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 
 const Header = () => {
   const [word, setWord] = useState("");
+  const router = useRouter();
+
   const handleSearchClick = () => {
-    if (word === "") alert("검색어를 입력해주세요.");
+    if (word === "") {
+      alert("검색어를 입력해주세요.");
+      return;
+    }
+
     Router.push(`/search?word=${word}`);
   };
 
@@ -17,17 +23,27 @@ const Header = () => {
   };
 
   const handleEnterKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
-    console.log(e);
     if (e.code === "Enter") handleSearchClick();
   };
+
+  const handleHomeClick = () => {
+    Router.push(`/`);
+    setWord("");
+  };
+
+  useEffect(() => {
+    console.log("*************");
+    console.log(router);
+    if (router.query) setWord(router.query.word);
+  }, [router.query.word]);
 
   return (
     <div className="header">
       <div className="header_search" onKeyUp={(e) => handleEnterKeyUp(e)}>
-        <input type="text" placeholder="Search..." value={word} onChange={(e) => handleInputChange(e)} />
+        <input type="text" placeholder="Let's search love!" value={word} onChange={(e) => handleInputChange(e)} />
         <MagnifyingGlassIcon className="header_search_icon" onClick={handleSearchClick} />
       </div>
-      <HomeIcon className="header_icon" />
+      <HomeIcon className="header_icon" onClick={handleHomeClick} />
     </div>
   );
 };
