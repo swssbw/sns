@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, KeyboardEvent, ChangeEvent } from "react";
 import { HomeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Router from "next/router";
 
@@ -9,18 +9,21 @@ const Header = () => {
     Router.push(`/search?word=${word}`);
   };
 
-  const handleInputChange = (e) => {
-    // 영문만 입력되도록
-    setWord(e.target.value);
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+    const eng = /^[a-zA-Z]*$/;
+    if (eng.test(target.value)) setWord(target.value);
+    else return;
   };
 
-  const handleEnterKeyUp = (e) => {
-    if (e.keyCode === 13) handleSearchClick();
+  const handleEnterKeyUp = (e: KeyboardEvent<HTMLImageElement>) => {
+    if (e.code === "Enter") handleSearchClick();
   };
+
   return (
     <div className="header">
       <div className="header_search" onKeyUp={(e) => handleEnterKeyUp(e)}>
-        <input type="text" placeholder="Search..." value={word} onChange={(e) => setWord(e.target.value)} />
+        <input type="text" placeholder="Search..." value={word} onChange={(e) => handleInputChange(e)} />
         <MagnifyingGlassIcon className="header_search_icon" onClick={handleSearchClick} />
       </div>
       <HomeIcon className="header_icon" />
