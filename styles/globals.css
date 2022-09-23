@@ -142,6 +142,14 @@ p {
   font-size: 13px;
 }
 
+.sidebar_search {
+  height: 200px;
+}
+
+.sidebar_search_keyword {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
 /* 반응형 */
 @media screen and (min-width: 375px) and (max-width: 768px) {
   /* mobile ~ tablet */

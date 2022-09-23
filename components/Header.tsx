@@ -16,7 +16,8 @@ const Header = () => {
     else return;
   };
 
-  const handleEnterKeyUp = (e: KeyboardEvent<HTMLImageElement>) => {
+  const handleEnterKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
+    console.log(e);
     if (e.code === "Enter") handleSearchClick();
   };
 
