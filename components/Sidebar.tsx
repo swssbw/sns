@@ -8,23 +8,8 @@ const Sidebar = () => {
   const users = useAppSelector((state) => state.users.userList);
   const [userList, setUserList] = useState<UserList>([]);
 
-  // 랜덤 정수 5개 생성
-  const makeRandomNumber = () => {
-    let tmp = [];
-    for (let i = 0; i < 5; i++) {
-      const randomNum = Math.floor(Math.random() * 29);
-      if (tmp.indexOf(randomNum) === -1) {
-        tmp.push(randomNum);
-      }
-    }
-    return tmp;
-  };
-
   useEffect(() => {
-    const indexArr = makeRandomNumber();
-    let tmp: UserList = [];
-    indexArr.forEach((index) => tmp.push(users[index]));
-    setUserList(tmp);
+    setUserList(users.slice(0, 5));
   }, [users]);
 
   return (

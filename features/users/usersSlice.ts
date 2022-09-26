@@ -13,7 +13,7 @@ const initialState: initalStateType = {
 export const getUsersList = createAsyncThunk("users/getUsersList", async () => {
   const {
     data: { users },
-  } = await axios.get("https://dummyjson.com/users");
+  } = await axios.get("https://dummyjson.com/users?limit=5&skip=0");
 
   const tmp = users.map((user: any) => {
     return {
