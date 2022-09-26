@@ -3,14 +3,20 @@ import Head from "next/head";
 import { PropsWithChildren } from "react";
 
 const Layout = ({ children }: PropsWithChildren<unknown>) => {
+  // const firstName = children[0]?.props.userInfo.firstName;
+  // const username = children[0]?.props.userInfo.username;
+
   return (
     <div>
       <Head>
-        <title>짹짹이</title>
+        <title>
+          {/* {firstName} (@{username}) */}
+          짹쨱이
+        </title>
       </Head>
 
       <Header />
-      <div className="main">{children}</div>
+      <div className="userlayout">{children}</div>
     </div>
   );
 };

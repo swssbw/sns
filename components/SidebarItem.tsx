@@ -1,14 +1,21 @@
 import Image from "next/image";
 import React from "react";
 import { User } from "../data";
+import Router from "next/router";
 
 type Props = {
   item: User;
 };
+
 const SidebarItem = (props: Props) => {
   const { item } = props;
+
+  const handleClickUser = () => {
+    Router.push(`/user/${item.id}`);
+  };
+
   return (
-    <div className="sidebar_item">
+    <div className="sidebar_item" onClick={handleClickUser}>
       <Image
         src={item.image}
         alt="user image"

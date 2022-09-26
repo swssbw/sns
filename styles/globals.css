@@ -152,6 +152,85 @@ p {
   margin-bottom: 10px;
   cursor: pointer;
 }
+
+/* 유저페이지 */
+.userlayout {
+  padding-top: 50px;
+  background-color: white;
+  height: calc(100vh - 50px);
+}
+
+.userPage {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-top: 60px;
+}
+
+.userPage_section1 {
+  border-bottom: 1px solid #eee;
+}
+
+.userPage_section2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 8px;
+  row-gap: 16px;
+  padding-bottom: 60px;
+}
+
+.userPost_item {
+  padding: 4px;
+  border: 1px solid black;
+  width: 245px;
+}
+
+.userPost_item_body {
+  margin-top: 4px;
+  height: 178px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 11;
+  -webkit-box-orient: vertical;
+  font-size: 14px;
+}
+
+.userPost_tag {
+  margin-top: 4px;
+  display: inline-block;
+  border: 1px solid #eee;
+  background-color: #888;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.userInfo {
+  margin-bottom: 32px;
+}
+
+.userInfo > p {
+  margin-bottom: 8px;
+}
+
+.userInfo_username {
+  font-size: 1.4rem;
+}
+
+.userInfo_length {
+  display: inline-block;
+  padding: 2px 4px;
+  background-color: #aaa;
+}
+
+.userPost_item_title {
+  border-bottom: 1px dashed #aaa;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-bottom: 4px;
+}
+
 /* 반응형 */
 @media screen and (min-width: 375px) and (max-width: 768px) {
   /* mobile ~ tablet */
@@ -168,6 +247,35 @@ p {
   .feedItem_image {
     width: 370px;
     height: 370px;
+  }
+
+  .userlayout {
+    height: calc(100% + 100px);
+  }
+
+  .userPage {
+    max-width: 374px;
+  }
+
+  .userPage_section2 {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .userPost_item {
+    padding: 4px;
+    border: 1px solid black;
+    width: 360px;
+  }
+
+  .userPost_item_body {
+    margin-top: 4px;
+    height: 98px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    font-size: 14px;
   }
 }
 

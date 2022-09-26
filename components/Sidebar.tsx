@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { HomeIcon, UserIcon, UsersIcon } from "@heroicons/react/24/outline";
 import { useAppSelector } from "../features/hooks";
 import { User, UserList } from "../data";
 import SidebarItem from "./SidebarItem";

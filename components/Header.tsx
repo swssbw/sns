@@ -32,8 +32,6 @@ const Header = () => {
   };
 
   useEffect(() => {
-    console.log("*************");
-    console.log(router);
     if (router.query) setWord(router.query.word);
   }, [router.query.word]);
 
