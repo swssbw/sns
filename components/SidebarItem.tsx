@@ -17,7 +17,8 @@ const SidebarItem = (props: Props) => {
   return (
     <div className="sidebar_item" onClick={handleClickUser}>
       <Image
-        src={item.image}
+        // src={item.image}
+        src={`https://i.pravatar.cc/150?img=${item.id}`}
         alt="user image"
         width={25}
         height={25}

@@ -27,12 +27,13 @@ const imageArray: string[] = [
   "https://picsum.photos/id/1021/370/370",
   "https://picsum.photos/id/1022/370/370",
   "https://picsum.photos/id/1029/370/370",
+  "https://picsum.photos/id/1033/370/370",
 ];
 
 export const getContentsList = createAsyncThunk("contents/getContentsList", async () => {
   const {
     data: { quotes },
-  } = await axios.get("https://dummyjson.com/quotes?limit=16&skip=0");
+  } = await axios.get("https://dummyjson.com/quotes?limit=4&skip=0");
   const tmp = quotes.map((quote: Quote, index: number) => {
     return {
       id: quote.id,
@@ -44,12 +45,29 @@ export const getContentsList = createAsyncThunk("contents/getContentsList", asyn
   return tmp;
 });
 
+export const getContentsByScroll = createAsyncThunk("contents/getContentsByScroll", async (page: number) => {
+  const {
+    data: { quotes },
+  } = await axios.get(`https://dummyjson.com/quotes?limit=4&skip=${page}`);
+
+  const tmp = quotes.map((quote: Quote) => {
+    return {
+      id: quote.id,
+      author: quote.author,
+      quote: quote.quote,
+      image: imageArray[quote.id],
+    };
+  });
+  return tmp;
+});
+
 const contentsSlice = createSlice({
   name: "contents",
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
+      // ===== getContentsList =====
       .addCase(getContentsList.pending, (state, action) => {
         state.contentsList = [];
       })
@@ -58,6 +76,16 @@ const contentsSlice = createSlice({
       })
       .addCase(getContentsList.rejected, (state, action) => {
         state.contentsList = [];
+      })
+      // ===== getContentsByScroll =====
+      .addCase(getContentsByScroll.pending, (state, action) => {
+        state.contentsList = [...state.contentsList];
+      })
+      .addCase(getContentsByScroll.fulfilled, (state, action) => {
+        state.contentsList = [...state.contentsList, ...action.payload];
+      })
+      .addCase(getContentsByScroll.rejected, (state, action) => {
+        state.contentsList = [...state.contentsList];
       });
   },
 });

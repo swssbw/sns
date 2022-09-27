@@ -16,9 +16,6 @@ type Props = {
 };
 
 const Id = ({ userPosts, userInfo }: Props) => {
-  console.log(userPosts);
-  console.log(userInfo);
-
   return (
     <div className="userPage">
       <div className="userPage_section1 userInfo">
