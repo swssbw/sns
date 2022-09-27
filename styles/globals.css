@@ -224,15 +224,6 @@ p {
   font-size: 1.4rem;
 }
 
-.userInfo_length {
-  /* display: inline-block; */
-  /* padding: 2px 4px; */
-  /* background-color: #9bdec2;
-  color: #33b586;
-  border: 3px solid #9bdec2; */
-  /* color: #33b586; */
-}
-
 .userPost_item_title {
   border-bottom: 1px dashed #aaa;
   overflow: hidden;

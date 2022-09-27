@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["robohash.org", "picsum.photos", "source.unsplash.com", "i.pravatar.cc"],
+    domains: ["picsum.photos", "source.unsplash.com", "i.pravatar.cc"],
   },
 };

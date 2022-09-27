@@ -6,7 +6,7 @@ const Layout = ({ children }: PropsWithChildren<unknown>) => {
   return (
     <div>
       <Head>
-        <title>짹짹이</title>
+        <title>NextSNS</title>
       </Head>
 
       <Header />
