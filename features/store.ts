@@ -14,7 +14,8 @@ const rootReducer = (state: any, action: AnyAction) => {
 const makeStore = () =>
   configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
     devTools: true,
   });
 
