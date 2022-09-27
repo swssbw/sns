@@ -14,7 +14,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div>
-        <p className="sidebar_title">RECOMMENDED</p>
+        <p className="sidebar_title">Recommended</p>
         <div className="sidebar_contents">
           {userList.map((user: User, index: number) => (
             <SidebarItem item={user} key={index} />
