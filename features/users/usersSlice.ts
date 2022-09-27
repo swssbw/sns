@@ -15,11 +15,11 @@ export const getUsersList = createAsyncThunk("users/getUsersList", async () => {
     data: { users },
   } = await axios.get("https://dummyjson.com/users?limit=5&skip=0");
 
-  const tmp = users.map((user: any) => {
+  const tmp = users.map((user: any, index: number) => {
     return {
       id: user.id,
       name: user.firstName,
-      image: user.image,
+      image: `https://i.pravatar.cc/150?img=${index + 1}`,
       email: user.email,
     };
   });

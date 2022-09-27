@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Image from "next/image";
 
 type userPost = {
   id: number;
@@ -16,16 +17,28 @@ type Props = {
 };
 
 const Id = ({ userPosts, userInfo }: Props) => {
+  console.log(userInfo);
   return (
     <div className="userPage">
-      <div className="userPage_section1 userInfo">
-        <p className="userInfo_username">@ {userInfo.username}</p>
-        <p className="userInfo_name">
-          {userInfo.firstName} {userInfo.lastName} ({userInfo.gender})
-        </p>
-        <p className="userInfo_email">{userInfo.email}</p>
-        <p className="userInfo_university">{userInfo.university}</p>
-        <p className="userInfo_length">Post : {userPosts.length}</p>
+      <div className="section1_wrapper">
+        <div>
+          <Image
+            src={`https://i.pravatar.cc/150?img=${userInfo.id}`}
+            alt="userInfoImage"
+            width={180}
+            height={180}
+            id="userImage"
+          />
+        </div>
+        <div className="userPage_section1 userInfo">
+          <p className="userInfo_username">@ {userInfo.username}</p>
+          <p className="userInfo_name">
+            {userInfo.firstName} {userInfo.lastName} ({userInfo.gender})
+          </p>
+          <p className="userInfo_email">{userInfo.email}</p>
+          <p className="userInfo_university">{userInfo.university}</p>
+          <p className="userInfo_length">Post : {userPosts.length}</p>
+        </div>
       </div>
       <div className="userPage_section2 userPosts">
         {userPosts.map((post) => (
