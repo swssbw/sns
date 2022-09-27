@@ -157,7 +157,6 @@ p {
 .userlayout {
   padding-top: 50px;
   background-color: white;
-  height: calc(100vh - 50px);
 }
 
 .userPage {
