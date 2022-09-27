@@ -4,11 +4,12 @@ import Sidebar from "../components/Sidebar";
 import { getContentsList, getContentsByScroll } from "../features/contents/contentsSlice";
 import { getUsersList } from "../features/users/usersSlice";
 import wrapper from "../features/store";
-import { useEffect } from "react";
+import { useEffect, ReactElement } from "react";
 import { useAppDispatch, useAppSelector } from "../features/hooks";
 import { ColorRing } from "react-loader-spinner";
+import PostLayout from "../components/PostsLayout";
 
-const Home: NextPage = () => {
+const Home = () => {
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector((state) => state.contents.isLoading);
 
@@ -51,6 +52,10 @@ const Home: NextPage = () => {
       <div id="target" />
     </>
   );
+};
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <PostLayout>{page}</PostLayout>;
 };
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async () => {

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import axios from "axios";
 import Image from "next/image";
 import Head from "next/head";
+import PostLayout from "../../components/PostsLayout";
+import UserLayout from "../../components/UserLayout";
 
 type userPost = {
   id: number;
@@ -64,6 +66,10 @@ const Id = ({ userPosts, userInfo }: Props) => {
   );
 };
 
+Id.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};
+
 export default Id;
 
 export async function getServerSideProps(context: { query: { id: number } }) {
@@ -77,7 +83,6 @@ export async function getServerSideProps(context: { query: { id: number } }) {
     props: {
       userPosts: userPosts,
       userInfo: userInfo,
-      layout: "user",
     },
   };
 }

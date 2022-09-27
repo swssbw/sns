@@ -1,7 +1,8 @@
-import React, { useEffect, useState, MouseEvent } from "react";
+import React, { useEffect, useState, ReactElement } from "react";
 import Router, { useRouter } from "next/router";
 import axios from "axios";
 import Image from "next/image";
+import PostLayout from "../components/PostsLayout";
 
 type Post = {
   error: boolean;
@@ -74,6 +75,10 @@ const search = () => {
       </div>
     </>
   );
+};
+
+search.getLayout = function getLayout(page: ReactElement) {
+  return <PostLayout>{page}</PostLayout>;
 };
 
 export default search;
