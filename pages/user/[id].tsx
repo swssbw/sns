@@ -58,7 +58,7 @@ const Id = ({ userPosts, userInfo }: Props) => {
 
 export default Id;
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: { query: { id: number } }) {
   const userPosts = await axios
     .get(`https://dummyjson.com/posts/user/${context.query.id}`)
     .then((response) => response.data.posts);

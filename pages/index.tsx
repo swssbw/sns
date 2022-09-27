@@ -1,14 +1,17 @@
 import type { NextPage } from "next";
 import Feed from "../components/Feed";
 import Sidebar from "../components/Sidebar";
-import { useDispatch } from "react-redux";
 import { getContentsList, getContentsByScroll } from "../features/contents/contentsSlice";
 import { getUsersList } from "../features/users/usersSlice";
 import wrapper from "../features/store";
 import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../features/hooks";
+import { ColorRing } from "react-loader-spinner";
 
 const Home: NextPage = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector((state) => state.contents.isLoading);
+
   let page = 4;
 
   useEffect(() => {
@@ -21,7 +24,7 @@ const Home: NextPage = () => {
           }
         }
       },
-      { threshold: 0.5, rootMargin: "80px" }
+      { threshold: 0 }
     );
 
     const target = document.querySelector("#target");
@@ -36,6 +39,15 @@ const Home: NextPage = () => {
     <>
       <Feed />
       <Sidebar />
+      {isLoading && (
+        <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+          colors={["#15605c", "#068071", "#279876", "#33b586", "#64cd9f"]}
+        />
+      )}
       <div id="target" />
     </>
   );

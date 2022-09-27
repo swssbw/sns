@@ -3,13 +3,17 @@
   src: url("./Pretendard-Regular.otf");
 }
 
+html {
+  height: 100%;
+}
 /* 공통 스타일 초기화 */
 body {
   font-family: Pretendard, Arial, Helvetica, sans-serif;
-  background-color: #f8f8f8;
   margin: 0;
   padding: 0;
   min-width: 375px;
+  background-color: #f4f7f6;
+  height: 100%;
 }
 
 input {
@@ -39,6 +43,7 @@ p {
 .header_search {
   width: 240px;
   background: rgba(240, 240, 240, 0.733);
+  background: #f0f5f3;
   border-radius: 36px;
   padding: 0 4px;
   height: 36px;
@@ -55,6 +60,7 @@ p {
   width: 20px;
   height: 20px;
   cursor: pointer;
+  color: #33b586;
 }
 
 .header_icon {
@@ -62,6 +68,7 @@ p {
   width: 20px;
   height: 20px;
   cursor: pointer;
+  color: #068071;
 }
 
 /* 메인 */
@@ -157,6 +164,7 @@ p {
 .userlayout {
   padding-top: 50px;
   background-color: white;
+  height: calc(100vh - 50px);
 }
 
 .userPage {
@@ -197,7 +205,7 @@ p {
   margin-top: 4px;
   display: inline-block;
   border: 1px solid #eee;
-  background-color: #888;
+  background-color: #33b586;
   color: white;
   padding: 2px 4px;
   border-radius: 4px;
@@ -217,9 +225,12 @@ p {
 }
 
 .userInfo_length {
-  display: inline-block;
-  padding: 2px 4px;
-  background-color: #aaa;
+  /* display: inline-block; */
+  /* padding: 2px 4px; */
+  /* background-color: #9bdec2;
+  color: #33b586;
+  border: 3px solid #9bdec2; */
+  /* color: #33b586; */
 }
 
 .userPost_item_title {
@@ -293,3 +304,15 @@ p {
     height: 478px;
   }
 }
+
+/* $green0: #f0f5f3;
+$green100: #dff0e6;
+$green200: #d1e8de;
+$green300: #b8e2d0;
+$green400: #9bdec2;
+$green500: #64cd9f;
+$green600: #33b586;
+$green700: #279876;
+$green800: #068071;
+$green900: #15605c; 
+#f8f8f8*/

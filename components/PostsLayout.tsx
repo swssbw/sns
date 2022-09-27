@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "./Header";
 import Head from "next/head";
 import { PropsWithChildren } from "react";
 

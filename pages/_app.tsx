@@ -1,10 +1,10 @@
 import "../styles/globals.css";
-import type { AppProps } from "next/app";
+import type { AppProps as NextAppProps } from "next/app";
 import { wrapper } from "../features/store";
-import Layout from "../components/Layout";
+import PostsLayout from "../components/PostsLayout";
 import UserLayout from "../components/UserLayout";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: NextAppProps) {
   switch (pageProps.layout) {
     case "user": {
       return (
@@ -15,17 +15,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
     default: {
       return (
-        <Layout>
+        <PostsLayout>
           <Component {...pageProps} />
-        </Layout>
+        </PostsLayout>
       );
     }
   }
-  // return (
-  //   <Layout>
-  //     <Component {...pageProps} />
-  //   </Layout>
-  // );
 }
 
 export default wrapper.withRedux(MyApp);

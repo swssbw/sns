@@ -3,7 +3,7 @@ import { HomeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Router, { useRouter } from "next/router";
 
 const Header = () => {
-  const [word, setWord] = useState("");
+  const [word, setWord] = useState<string | string[] | undefined>("");
   const router = useRouter();
 
   const handleSearchClick = () => {

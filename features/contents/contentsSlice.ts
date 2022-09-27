@@ -4,10 +4,12 @@ import axios from "axios";
 
 type initalStateType = {
   contentsList: QuoteList;
+  isLoading: boolean;
 };
 
 const initialState: initalStateType = {
   contentsList: [],
+  isLoading: false,
 };
 
 const imageArray: string[] = [
@@ -80,12 +82,15 @@ const contentsSlice = createSlice({
       // ===== getContentsByScroll =====
       .addCase(getContentsByScroll.pending, (state, action) => {
         state.contentsList = [...state.contentsList];
+        state.isLoading = true;
       })
       .addCase(getContentsByScroll.fulfilled, (state, action) => {
         state.contentsList = [...state.contentsList, ...action.payload];
+        state.isLoading = false;
       })
       .addCase(getContentsByScroll.rejected, (state, action) => {
         state.contentsList = [...state.contentsList];
+        state.isLoading = false;
       });
   },
 });

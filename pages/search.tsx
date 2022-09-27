@@ -55,7 +55,7 @@ const search = () => {
       </div>
       <div className="sidebar sidebar_search">
         <div>
-          <p className="sidebar_title sidebar_search_title">추천 검색어</p>
+          <p className="sidebar_title sidebar_search_title">Recommended</p>
           <div className="sidebar_contents">
             <p className="sidebar_search_keyword" onClick={() => handleKeywordClick("summer")}>
               🌴 summer
